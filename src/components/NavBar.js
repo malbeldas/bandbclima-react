@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../img/logo_B&B.jpg';
 
-class NavBar extends Component {
-    render() {
+function NavBar() {
         return (
             <div className="container">
                 <nav className="nav-mobile">
@@ -11,7 +10,6 @@ class NavBar extends Component {
                 </nav>
             </div>
         );
-      }
 }
 
 export default NavBar;

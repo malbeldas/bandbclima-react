@@ -25,6 +25,37 @@ a{
   padding-left: 10px;
 }
 
+.main{
+  text-align: center;
+}
+
+.itemRow{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.itemCount{
+  width: 350px;
+  height: 400px;
+  margin-bottom: 20px;
+  border: 1px solid black;
+}
+
+.itemCountProduct{
+  width: 250px;
+}
+
+.countImput{
+  text-align: center;
+}
+
+.footer{
+  border-top: 1px solid black;
+  text-align: center;
+}
+
 .fa-shopping-cart{
   font-size: 20px;
   padding-right: 20px;

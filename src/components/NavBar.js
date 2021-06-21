@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import logo from '../img/logo_B&B.jpg';
 
 function NavBar() {

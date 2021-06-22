@@ -14,15 +14,11 @@ function ItemCount({stock, initial}) {
             
             switch (operator) {
                 case '+':
-                    if(Number(number) < stock){
-                        newResult = Number(number) + 1
-                    }
+                    newResult = Number(number) + 1
                     break;
                     
                 case '-':
-                    if(Number(number) > 0){
-                        newResult = Number(number) - 1
-                    }
+                    newResult = Number(number) - 1
                     break;    
                         
                 default:
@@ -45,7 +41,7 @@ function ItemCount({stock, initial}) {
                 <a href="#"><h3 className="itemCountTitle">Aire Acondicionado</h3></a>
                 <a href="#"><img src={product} className="itemCountProduct" alt="product" /></a>
                 <div className="count">
-                    <button className="countMinus" onClick={()=>operation('-')}> - </button>
+                    <button className="countMinus" onClick={()=>operation('-')} disabled={number <= 0}> - </button>
                     <input 
                         id="number"
                         className="countImput"
@@ -53,7 +49,7 @@ function ItemCount({stock, initial}) {
                         value={number}
                         onChange={(e) => setNumber(e.target.value)}
                     />
-                    <button className="countPlus" onClick={()=>operation('+')}> + </button>
+                    <button className="countPlus" onClick={()=>operation('+')} disabled={number >= stock}> + </button>
                 </div>
                 <button className="countAddCart" onClick={()=>onAdd()}>Agregar al carrito</button>
             </div>

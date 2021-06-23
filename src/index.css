@@ -40,10 +40,22 @@ a{
   width: 350px;
   height: 400px;
   margin-bottom: 20px;
-  border: 1px solid black;
+  border: 2px solid #6EC1E4;
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 1s ease;
 }
 
-.itemCountProduct{
+.itemCountFadeIn{
+  width: 350px;
+  height: 400px;
+  margin-bottom: 20px;
+  border: 2px solid #6EC1E4;
+  border-radius: 20px;
+  transition: opacity 1s ease;
+}
+
+.itemCountImage{
   width: 250px;
 }
 

@@ -1,9 +1,7 @@
-import logo from '../img/logo_B&B.jpg';
-
 const CartWidget = () => {
     return (
         <>
-            <a href="#"><img src={logo} className="logo" alt="Logo" /></a>
+            <a href="#"><i className="fas fa-shopping-cart"></i></a>
         </>
     );
 }

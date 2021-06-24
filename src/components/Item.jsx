@@ -2,16 +2,6 @@ import {ItemCount} from '../components/ItemCount'
 
 function Item({stock, initial, id, title, description, price, pictureUrl}) {
 
-    const retrasoRed = new Promise((resolve, reject)=>{
-        setTimeout(()=>{
-            resolve(id)
-        }, 2000)
-    })
-
-    retrasoRed.then((id)=>{
-        document.getElementById('itemCount_' + id).className = "itemCountFadeIn";
-    })
-
     return (
         <div id={'itemCount_' + id} className="itemCount">
             <a href="#"><h3 id={'itemCountTitle_' + id} className="itemCountTitle">{title}</h3>

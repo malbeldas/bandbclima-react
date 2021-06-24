@@ -28,8 +28,20 @@ let products = [{
 
 const ItemList = () => {
 
+    const retrasoRed = new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            resolve(products)
+        }, 2000)
+    })
+
+    retrasoRed.then((products)=>{
+        const productos = products.map(({id})=>(
+            document.getElementById('itemCount_' + id).className = "itemCountFadeIn"
+        ))
+    })
+
     const items = products.map(({id, title, description, price, pictureUrl, stock})=>(
-            <Item initial='1' id={id} title={title} description={description} price={price} pictureUrl={pictureUrl} stock={stock} />
+            <Item initial='1' key= {id} id={id} title={title} description={description} price={price} pictureUrl={pictureUrl} stock={stock} />
         ))
 
     return (

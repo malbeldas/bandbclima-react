@@ -1,7 +1,9 @@
+import {Link} from 'react-router-dom';
+
 const CartWidget = () => {
     return (
         <>
-            <a href="#"><i className="fas fa-shopping-cart"></i></a>
+            <Link to={'/#'}><i className="fas fa-shopping-cart"></i></Link>
         </>
     );
 }

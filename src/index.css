@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -12,7 +13,7 @@ a{
   color: black;
 }
 
-.nav-mobile {
+.nav-responsive {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,9 +21,25 @@ a{
   height: 50px;
 }
 
+.categoryContainer{
+  display: none;
+}
+
+@media (min-width: 1260px){
+  .categoryContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 35%;
+  }
+}
+
 .logo{
   width: 230px;
   padding-left: 10px;
+}
+
+.currentCategory{
+  font-weight: bold;
 }
 
 .main{
@@ -31,14 +48,14 @@ a{
 
 .itemRow{
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: wrap;
   align-items: center;
   margin-bottom: 50px;
 }
 
 .itemCount{
   width: 350px;
-  height: 400px;
   margin-bottom: 20px;
   border: 2px solid #6EC1E4;
   border-radius: 20px;
@@ -48,7 +65,6 @@ a{
 
 .itemCountFadeIn{
   width: 350px;
-  height: 400px;
   margin-bottom: 20px;
   border: 2px solid #6EC1E4;
   border-radius: 20px;
@@ -56,11 +72,15 @@ a{
 }
 
 .itemCountImage{
-  width: 250px;
+  width: 200px;
 }
 
 .countImput{
   text-align: center;
+}
+
+.countAddCart{
+  margin-bottom: 10px;
 }
 
 .footer{

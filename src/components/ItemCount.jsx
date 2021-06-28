@@ -29,7 +29,7 @@ const ItemCount = ({stock, initial}) => {
     }
 
     const onAdd = ()=>{
-        if(number != 0){
+        if(number !== 0){
             alert('Se ha agregado ' + number + ' del articulo "Aire Acondicionado"')
         }else{
             alert('Debes seleccionar al menos un producto')

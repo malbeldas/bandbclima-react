@@ -3,6 +3,7 @@ import { Layout } from '../../components/layouts/Layout'
 import { ItemListContainer } from '../../components/ItemListContainer'
 
 const Home = () => {
+
     return (
         <Layout>
             <div className="main">

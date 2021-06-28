@@ -1,5 +1,5 @@
 import React from 'react'
-import {Item} from '../components/Item'
+import {ItemDetail} from '../components/ItemDetail'
 
 let products = [{
     id: 0,
@@ -83,39 +83,27 @@ let products = [{
     category_id:2,
 }]
 
-const ItemList = (category) => {
-    
-    let newProducts;
-
-    if(category.category !== undefined){
-        newProducts = products.filter((product)=>{
-            return product.category_id === Number(category.category)
-        })
-    }else{
-        newProducts = products
-    }
+const ItemDetailContainer = (id) => {
 
     const retrasoRed = new Promise((resolve, reject)=>{
         setTimeout(()=>{
-            resolve(newProducts)
+            resolve(products[id.id])
         }, 2000)
     })
 
-    retrasoRed.then((newProducts)=>{
-        newProducts.map(({id})=>(
-            document.getElementById('itemCount_' + id).className = "itemCountFadeIn"
-        ))
+    retrasoRed.then((product)=>{
+        document.getElementById('itemDetail_' + product.id).className = "itemDetailFadeIn"
     })
 
-    const items = newProducts.map(({id, title, description, price, pictureUrl, stock})=>(
-        <Item initial='1' key= {id} id={id} title={title} description={description} price={price} pictureUrl={pictureUrl} stock={stock} />
-    ))
+    console.log(products[id.id])
+    
+    const item = <ItemDetail id={products[id.id].id} title={products[id.id].title} description={products[id.id].description} price={products[id.id].price} pictureUrl={products[id.id].pictureUrl} />
 
     return (
-        <div className="itemRow">
-            {items}
+        <div>
+            {item}
         </div>
     )
 }
 
-export {ItemList}
+export {ItemDetailContainer}

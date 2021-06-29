@@ -3,11 +3,9 @@ import {Item} from '../components/Item'
 
 const ItemList = ({items}) => {
 
-    console.log(items.length)
-
     return (
         <div className="itemRow">
-            {items.length !== 0 ? items.map(item=><Item key={item.id} item={item} initial='1'/>) : <h1>Cargando</h1>}
+            {items.length !== 0 ? items.map(item=><Item key={item.id} item={item} initial='1'/>) : <h1>Cargando...</h1>}
         </div>
     )
 }

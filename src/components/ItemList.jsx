@@ -1,11 +1,12 @@
 import React from 'react'
 import {Item} from '../components/Item'
+import {Loader} from '../components/Loader'
 
 const ItemList = ({items}) => {
 
     return (
         <div className="itemRow">
-            {items.length !== 0 ? items.map(item=><Item key={item.id} item={item} initial='1'/>) : <h1>Cargando...</h1>}
+            {items.length !== 0 ? items.map(item=><Item key={item.id} item={item} initial='1'/>) : <Loader/>}
         </div>
     )
 }

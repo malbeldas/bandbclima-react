@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
 import {ItemCount} from './ItemCount'
+import {useValueContext} from '../contexts/CartContext'
 
 function ItemDetail({item}) {
 
     const [buying, setBuying] = useState(false);
     const [quantity, setQuantity] = useState(0);
+    const {addItem} = useValueContext();
 
     function add(cantidadAgregada) {
 
@@ -14,6 +16,7 @@ function ItemDetail({item}) {
         }else{
             setBuying(true);
             setQuantity(cantidadAgregada);
+            addItem(item, cantidadAgregada);
     
             alert(`Se han agregado ${cantidadAgregada} del producto ${item.title}`)
         }
@@ -29,7 +32,7 @@ function ItemDetail({item}) {
             <p id={'itemDetailDescription_' + item.id}>{item.description}</p>
             <h2 id={'itemDetailPrice_' + item.id}>$ {item.price}</h2>
             <div className="">
-                { !buying ? <ItemCount onAdd={add} stock={item.stock} initial='1'/> : <> <Link to={'/cart'}><button type="button" className="">Terminar compra</button></Link> </>}
+                { !buying ? <ItemCount onAdd={add} stock={item.stock} initial = {item.stock === 0 ? 0 : 1} /> : <> <Link to={'/cart'}><button type="button" className="">Terminar compra</button></Link> </>}
             </div>           
         </div>
         </>

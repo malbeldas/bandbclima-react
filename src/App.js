@@ -1,11 +1,14 @@
 import './App.css';
 import { Home } from './views/home/Home';
 import { ProductDetail } from './views/productDetail/ProductDetail';
+import { Cart } from './views/cart/Cart';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import { CartProvider } from './contexts/CartContext';
 
 function App() {
   
   return (
+    <CartProvider>
     <BrowserRouter>
       <Switch>
           <Route exact path='/'>
@@ -17,8 +20,13 @@ function App() {
           <Route exact path='/product/:id'>
             <ProductDetail />
           </Route>
+          <Route path="/cart">
+            <Cart />
+          </Route>
       </Switch>
     </BrowserRouter>
+    </CartProvider>
+
   );
 }
 

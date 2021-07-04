@@ -6,7 +6,7 @@ const ItemList = ({items}) => {
 
     return (
         <div className="itemRow">
-            {items.length !== 0 ? items.map(item=><Item key={item.id} item={item} initial='1'/>) : <Loader/>}
+            {items.length !== 0 ? items.map(item=><Item key={item.id} item={item} initial = {item.stock === 0 ? 0 : 1}/>) : <Loader/>}
         </div>
     )
 }

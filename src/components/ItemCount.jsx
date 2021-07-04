@@ -1,45 +1,30 @@
 import React from 'react'
 import {useState} from 'react'
 
-const ItemCount = ({stock, initial}) => {
+const ItemCount = ({stock, initial, onAdd}) => {
 
-    if(stock <= 0){
-        initial = 0
-    }
+    const [number, setNumber] = useState(initial);
 
-    const [number, setNumber] = useState(initial)
-
-    const operation = (operator) => {
-        let newResult
-            
-            switch (operator) {
-                case '+':
-                    newResult = Number(number) + 1
-                    break;
-                    
-                case '-':
-                    newResult = Number(number) - 1
-                    break;    
-                        
-                default:
-                    break;
-            }
-                        
-        setNumber(newResult)
-    }
-
-    const onAdd = ()=>{
-        if(number !== 0){
-            alert('Se ha agregado ' + number + ' del articulo "Aire Acondicionado"')
-        }else{
-            alert('Debes seleccionar al menos un producto')
+    function subtract() {
+        if (Number(number) > 0) {
+            setNumber(Number(number) - 1);
         }
+    }
+    
+    function add() {
+        if (Number(number) < stock) {
+            setNumber(Number(number) + 1);
+        }
+    }
+
+    function buy() {
+        onAdd(number);
     }
 
     return (
         <>
             <div className="count">
-                <button className="countMinus" onClick={()=>operation('-')} disabled={number <= 0}> - </button>
+                <button className="countMinus" onClick={subtract} disabled={number <= 0}> - </button>
                 <input 
                     id="number"
                     className="countImput"
@@ -47,10 +32,10 @@ const ItemCount = ({stock, initial}) => {
                     value={number}
                     onChange={(e) => setNumber(e.target.value)}
                 />
-                <button className="countPlus" onClick={()=>operation('+')} disabled={number >= stock}> + </button>
+                <button className="countPlus" onClick={add} disabled={number >= stock}> + </button>
             </div>
 
-            <button className="countAddCart" onClick={()=>onAdd()}>Agregar al carrito</button>
+            <button className="countAddCart" onClick={buy}>Agregar al carrito</button>
         </>
     )
 }

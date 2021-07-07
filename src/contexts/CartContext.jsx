@@ -11,9 +11,8 @@ const CartProvider = ({ children = [], defaultCart = [] }) => {
     function addItem(item, quantity) {
         let obj = cart.find(o => o.item.id === item.id);
         if (obj == undefined) {
-            setCart([...cart, { item, quantity }]);
+            setCart([{ item, quantity }]);
         }
-        console.log(cart);
     }
 
     function removeItem(itemId) {

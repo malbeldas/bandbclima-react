@@ -3,7 +3,7 @@ import {ItemList} from '../components/ItemList'
 import { useParams } from 'react-router-dom'
 import { dataBase } from '../firebase/firebase'
 
-const products = [{
+/* const products = [{
     id: 1,
     title: 'Aire Acondicionado 1',
     description: 'Aire acondicionado BGH split frío/calor 3000 frigorías blanco 220V BS35WCCR',
@@ -83,7 +83,7 @@ const products = [{
     pictureUrl: 'https://http2.mlstatic.com/D_NQ_NP_979289-MLA42828721677_072020-O.webp',
     stock: 4,
     category_id:3,
-}]
+}] */
 
 const ItemListContainer = () => {
 
@@ -93,19 +93,44 @@ const ItemListContainer = () => {
 
     useEffect(()=>{
         setLoading(true)
-
+        
         const productsCollection = dataBase.collection('products')
-        productsCollection.get().then((querySnapshot)=>{
-            if(querySnapshot.size === 0){
-                console.log('No Results')
-            }
-            setCatalogo(querySnapshot.docs.map(doc => doc.data()))
-        }).catch((error)=>{
-            console.log(error)
-        }).finally(()=>{
-            setLoading(false)
-        })
-    }, [])
+
+        console.log(categoryId)
+
+        if(categoryId !== undefined){
+            productsCollection.where('category_id', '==', Number(categoryId)).get().then((querySnapshot)=>{
+                if(querySnapshot.size === 0){
+                    console.log('No Results')
+                }
+                setCatalogo(querySnapshot.docs.map(doc => {
+                    const data = doc.data();
+                    const id = doc.id;
+                    return { id, ...data };
+                }))
+            }).catch((error)=>{
+                console.log(error)
+            }).finally(()=>{
+                setLoading(false)
+            })
+        }else{
+            productsCollection.get().then((querySnapshot)=>{
+                if(querySnapshot.size === 0){
+                    console.log('No Results')
+                }
+                setCatalogo(querySnapshot.docs.map(doc => {
+                    const data = doc.data();
+                    const id = doc.id;
+                    return { id, ...data };
+                }))
+            }).catch((error)=>{
+                console.log(error)
+            }).finally(()=>{
+                setLoading(false)
+            })
+        }
+
+    }, [categoryId])
 
     
     /* useEffect(()=>{

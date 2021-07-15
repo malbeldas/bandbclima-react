@@ -1,15 +1,15 @@
 import {NavLink} from 'react-router-dom';
 
 let categories = [{
-    id: 0,
+    id: 1,
     name: 'Aire Acondicionado',
 },
 {
-    id: 1,
+    id: 2,
     name: 'Calefaccion',
 },
 {
-    id: 2,
+    id: 3,
     name: 'Agua caliente sanitaria',
 }]
 

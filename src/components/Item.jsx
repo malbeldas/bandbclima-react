@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 function Item({item, initial}) {
 
     const [buying, setBuying] = useState(false);
-    const [quantity, setQuantity] = useState(0);
+    const [, setQuantity] = useState(0);
     const {addItem} = useValueContext();
 
     function add(cantidadAgregada) {

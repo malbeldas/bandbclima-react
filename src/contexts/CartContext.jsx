@@ -10,7 +10,7 @@ const CartProvider = ({ children = [], defaultCart = [] }) => {
     
     function addItem(item, quantity) {
         let obj = cart.find(o => o.item.id === item.id);
-        if (obj == undefined) {
+        if (obj === undefined) {
             setCart([{ item, quantity }]);
         }
     }

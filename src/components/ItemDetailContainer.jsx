@@ -6,7 +6,7 @@ import { dataBase } from '../firebase/firebase'
 const ItemDetailContainer = (id) => {
 
     const [item, setItem] = useState([])
-    const [loading, setLoading] = useState([])
+    const [, setLoading] = useState([])
 
     useEffect(()=>{
         setLoading(true)
@@ -15,8 +15,7 @@ const ItemDetailContainer = (id) => {
         const item = productsCollection.doc(id.id)
 
         item.get().then((doc)=>{
-            console.log(doc)
-            if(!doc.exist){
+            if(doc.empty){
                 console.log('No Results')
                 return;
             }
@@ -27,7 +26,7 @@ const ItemDetailContainer = (id) => {
         }).finally(()=>{
             setLoading(false)
         })
-    }, [])
+    }, [id.id])
     
     /* useEffect(()=>{
 

@@ -7,7 +7,7 @@ import { CartContext } from '../contexts/CartContext';
 function ItemDetail({item}) {
 
     const [buying, setBuying] = useState(false);
-    const [quantity, setQuantity] = useState(0);
+    const [, setQuantity] = useState(0);
     const {addItem} = useContext(CartContext);
 
     function add(cantidadAgregada) {

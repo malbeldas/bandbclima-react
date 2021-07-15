@@ -9,7 +9,7 @@ const Cart = () => {
     const {cart, clearCart} = useContext(CartContext)
 
     let emptyCart;
-    cart.length == 0 ? emptyCart = true : emptyCart = false
+    cart.length === 0 ? emptyCart = true : emptyCart = false
 
     const totalCharge = () => {
         if(!emptyCart){

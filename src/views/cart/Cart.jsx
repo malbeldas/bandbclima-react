@@ -3,6 +3,7 @@ import { Fragment } from 'react'
 import { Layout } from '../../components/layouts/Layout'
 import { CartContext } from '../../contexts/CartContext'
 import { CartItem } from '../../components/CartItem'
+import { Link } from 'react-router-dom'
 
 const Cart = () => {
 
@@ -27,9 +28,19 @@ const Cart = () => {
                 emptyCart ? 
                 <Fragment>
                     <h2>The cart is empty</h2>
+                    <Link to={`/`}><button>Buy</button></Link>
                 </Fragment> : 
                 <Fragment>
-                    {cart.map(obj => <><CartItem item={obj.item} quantity={obj.quantity}/><hr/></>)}
+                    <table className="cart-table">
+                    <tr>
+                        <th>Title</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                    </tr>
+                    {cart.map(obj => <><CartItem item={obj.item} quantity={obj.quantity}/></>)}
+                    </table>
                     <h2 className="total">Total {totalCharge()}</h2>
                     <button onClick={clearCart}>Vaciar carrito</button>
                     <button>Terminar compra</button>

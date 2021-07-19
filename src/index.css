@@ -61,6 +61,14 @@ a{
   text-align: center;
 }
 
+.cart-table{
+  width: 100%;
+}
+
+.cart-image{
+  width: 40%;
+}
+
 
 .itemRow{
   display: flex;

@@ -5,12 +5,14 @@ function CartItem({item, quantity}){
     const {removeItem} = useContext(CartContext)
 
     return(
-        <div>
-            <img src={item.pictureUrl} alt="item"/>
-            <h2>{item.title}</h2>
-            <h2>$ {item.price * quantity}</h2>
-            <button onClick={()=>removeItem(item.id)}>Remove Item</button>
-        </div>
+        <tr>
+            <td>{item.title}</td>
+            <td><img className="cart-image" src={item.pictureUrl} alt="item"/></td>
+            <td>$ {item.price}</td>
+            <td>{quantity}</td>
+            <td>$ {item.price * quantity}</td>
+            <td><button onClick={()=>removeItem(item.id)}>Remove Item</button></td>
+        </tr>
     )
 }
 

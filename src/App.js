@@ -2,6 +2,7 @@ import './App.css';
 import { Home } from './views/home/Home';
 import { ProductDetail } from './views/productDetail/ProductDetail';
 import { Cart } from './views/cart/Cart';
+import { Form } from './views/form/Form';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import { CartProvider } from './contexts/CartContext';
 
@@ -22,6 +23,9 @@ function App() {
           </Route>
           <Route path="/cart">
             <Cart />
+          </Route>
+          <Route path="/cart-form">
+            <Form />
           </Route>
       </Switch>
     </BrowserRouter>

@@ -43,7 +43,7 @@ const Cart = () => {
                     </table>
                     <h2 className="total">Total {totalCharge()}</h2>
                     <button onClick={clearCart}>Vaciar carrito</button>
-                    <button>Terminar compra</button>
+                    <Link to={`/cart-form`}><button>Terminar compra</button></Link>
                 </Fragment>
                 }
             </div>
